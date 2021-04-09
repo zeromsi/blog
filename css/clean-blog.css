@@ -132,6 +132,25 @@ hr.small {
     transform: translate3d(0, 100%, 0);
   }
 }
+
+
+.intro-header-portfolio {
+  background-color: #808080;
+  background: no-repeat center center;
+  background-attachment: scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  margin-bottom: 50px;
+}
+
+.intro-header-portfolio .site-heading,
+.intro-header-portfolio .post-heading,
+.intro-header-portfolio .page-heading {
+  padding: 100px 0 50px;
+  color: white;
+}
 .intro-header {
   background-color: #808080;
   background: no-repeat center center;
@@ -148,6 +167,8 @@ hr.small {
   padding: 100px 0 50px;
   color: white;
 }
+
+
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading,
   .intro-header .post-heading,
@@ -155,8 +176,19 @@ hr.small {
     padding: 150px 0;
   }
 }
+@media only screen and (min-width: 768px) {
+  .intro-header-portfolio .site-heading,
+  .intro-header-portfolio .post-heading,
+  .intro-header-portfolio .page-heading {
+    padding: 150px 0;
+  }
+}
 .intro-header .site-heading,
 .intro-header .page-heading {
+  text-align: center;
+}
+.intro-header-portfolio .site-heading,
+.intro-header-portfolio .page-heading {
   text-align: center;
 }
 .intro-header .site-heading h1,
@@ -166,6 +198,21 @@ hr.small {
 }
 .intro-header .site-heading .subheading,
 .intro-header .page-heading .subheading {
+  font-size: 24px;
+  line-height: 1.1;
+  display: block;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  margin: 10px 0 0;
+}
+
+.intro-header-portfolio .site-heading h1,
+.intro-header-portfolio .page-heading h1 {
+  margin-top: 0;
+  font-size: 50px;
+}
+.intro-header-portfolio .site-heading .subheading,
+.intro-header-portfolio .page-heading .subheading {
   font-size: 24px;
   line-height: 1.1;
   display: block;
@@ -207,6 +254,46 @@ hr.small {
     font-size: 55px;
   }
   .intro-header .post-heading .subheading {
+    font-size: 30px;
+  }
+}
+
+
+
+@media only screen and (min-width: 768px) {
+  .intro-header-portfolio .site-heading h1,
+  .intro-header-portfolio .page-heading h1 {
+    font-size: 80px;
+  }
+}
+.intro-header-portfolio .post-heading h1 {
+  font-size: 35px;
+}
+.intro-header-portfolio .post-heading .subheading,
+.intro-header-portfolio .post-heading .meta {
+  line-height: 1.1;
+  display: block;
+}
+.intro-header-portfolio .post-heading .subheading {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  margin: 10px 0 30px;
+  font-weight: 600;
+}
+.intro-header-portfolio .post-heading .meta {
+  font-family: 'Lora', 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 20px;
+}
+.intro-header-portfolio .post-heading .meta a {
+  color: white;
+}
+@media only screen and (min-width: 768px) {
+  .intro-header-portfolio .post-heading h1 {
+    font-size: 55px;
+  }
+  .intro-header-portfolio .post-heading .subheading {
     font-size: 30px;
   }
 }
