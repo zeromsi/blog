@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <title>Zeros Blog - Portfolio</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet'
+          type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+          rel='stylesheet' type='text/css'>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button class="navbar-toggle" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse"
+                    type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">...</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+                <li>
+                    <a href="portfolio.html">Portfolio</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url('img/blog.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="page-heading">
+                    <h1>A conceptual start to containerization - Part 1</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+            <h4>Containerization vs virtualization; Why containerization?</h4>
+            <p>Containerization is the next level of primitive virtualization. In virtualization, we used to create virtual instance of computers where every instance will have it’s very own operating system, necessary libraries and other processes(programs), access to certain amount of memory, disk, CPU of host machine. But why we need virtualization? Suppose, you have a computer or server of 16 GB memory that has Windows Server installed. The hosted application doesn’t need more than 6 GB of memory in the worst case. Now you got another application that requires 8-10 GB of memory and needs to be hosted on Redhat machine. Again, in another scenario, you want separate server for staging and production environment or you need java 7 and java 8 environment. What will you do? Will you purchase machines of required configurations? Of course you can do that. But won’t it be waste of money and resources? Yes, obviously! You got resources required but they are unused and idle! The process virtualization came to address this problem.</p>
+            <p>The process includes installation of an abstract layer on top of your host machine which will be in charge of allocation and isolation of resources (CPU, RAM, Hard disk) among virtual machines. The word Isolation in this context means one machine is completely isolated from others (host and guest or virtual machines) , no process intervention, if one crashed (Virtual machines only), it won’t affect others. This abstract layer is known as hypervisor.</p>
+            <p>There are two types of hypervisor available. The type 1 or bare metal hypervisor runs directly on top of your host machines hardware;no host OS is required. Type 2 hypervisor or hosted hypervisor is installed on top of a host OS. We’re not going deep of virtualization as our main concern is containerization.</p>
+
+            <h4>Why not virtualization?</h4>
+            <p>The question may arise, what’s wrong with virtualization? Why containerization came under spotlight? The answer is pretty straight forward, virtualization doesn’t have one problem but many. First of all, why we need to install full copy of OS for every virtual machines? To run a process(application or program), we don’t need a full copy of OS , what we only need is access to the kernel of OS and some required bins/libraries that are needed to run our application. Another ridiculous problem with virtual machine is boot time as it has to boot up with a full copy of OS. It may rise a serious availability issue when dealing with microservices.</p>
+
+            <p>Containerization exactly aims these issues. Now we can virtualize process rather than machine. Containerization starts with installing a container runtime engine over host OS. On top of that runtime engine we can run our applications by adding necessary layers of bins/libraries. Container runtime engine kind of gives an impression to the applications that they have OS kernel available, so they only should expect needed bins/libraries to run. Where we will put these instruction and how, we will get acknowledged later.Before that we must have a clear conceptual understanding on virtualization and containerization.</p>
+
+          <h4>Container Runtime Engine</h4>
+            <p>The two mostly known container runtime engines are docker and rocket. We are going to drive deep into docker as it has been the most used one. In brief, docker engine (runtime engine) is nothing but a set of programs that are needed, to run process (application) on top of host OS. In order to understand the features that a container runtime engine provides, we need to understand the concept of image and container.</p>
+            <h4>What is image and container?</h4>
+            <p>In one sentence, an image is nothing but a result o f a file that contains instructions to run an application. What these instruction contains are the installation of bins/libraries that are required to run an application and the application itself. </p>
+            <p>If you do not have the maintainers public key on your machine, you will get an error message similar to this:</p>
+            <p>Let’s understand these in a whole different way. Suppose your mom is out of home and she sent you a text, where she had written the whole process of cocking a dish like following,</p>
+           <pre>
+-> Take a pot
+-> Pour some water from water purifier
+-> Boil for 30 minutes
+-> Take the mixture from the freeze and pour it on the boiled water
+-> Boil for another 10 minutes
+-> Send me a message when you are done
+           </pre>
+            <p>Look at the recipe your mom had given to you. If you want to cock the particular dish you cannot but follow these instructions serially or you will not get the same result.</p>
+            <p>A file that results in image is like your mom’s recipe. In case of docker, this file is known as Dockerfile. From an docker image you can run as many as processes(application) as you want within your machines capacity. Each process(application) is known as container of an image. You can relate this with your operating system disk that you use to install OS on your computer. The disk you use is nothing but the image of a particular OS and when you install OS on your computer , you actually create an instance of that OS on your machine. In the OOP world, we may call an image a class and containers are it’s objects.</p>
+<h3>!hastaLaVista</h3>
+
+                <!--                    <p class="copyright text-muted">Copyright &copy; Your Website 2014</p>-->
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="js/clean-blog.min.js"></script>
+</body>
+</html>
