@@ -80,15 +80,21 @@
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
             <h4>Why Operator?</h4>
-            <p>For stateless application normal kubernetes deployment is more than enough. But What about stateful applications like databases where we may need to add some business logic to restore them from where they were unavailable. Cluster scaling, disaster recovery type jobs need human intervention as normal kubernetes deployment can't handle this. Operator is the perfect tool to automate these kind of jobs.</p>
-     <h4>What is an operator?</h4>
+            <p> In a kubernetes cluster, there's control loop that observes the state, then checks if the cluster state is okay with your desired state; if not then it acts accordingly to resolve the problem.
+                Now the problem is, this control loop is for the kubernetes default resources. The operator framework opens a way to define a blue print of your own kind of resource and write the logic of your controller. 
+                For example, stateful applications like databases where we may need to add some business logic to restore them from where they were unavailable. Cluster scaling, disaster recovery type jobs need human intervention as normal kubernetes deployment can't handle this. Operator is the perfect tool to automate these kind of jobs.</p>
+   
+            <h4>What is an operator?</h4>
             <p>An operator is nothing but a CRD asscociated with controller.</p>
             <h4>What is a CRD?</h4>
-            <p>CRD stands for Custom Resource Definition, It's basically a scheme. There's another resource named CR (Custom Resource) which is the json or yaml body format of our api.</p>
+            <p>CRD stands for Custom Resource Definition, It's basically a blue print of your custom kind.</p>
+            <h4>What is CR?</h4>
+            <p>CR stands for custom resource. It is the object of your CRD.</p>
+            <h4>What is OLM?</h4>
+            <p>OLM stands for Operator lifecycle manager. it manages the lifecycle of the installed operators in your cluster.</p>
+
         <h4>Controller</h4>
-            <p>Controller holds the business logic of pod/deployment/other kinds lifecycle management. Here developer can modify or enhance or incorporate their own logic of creating kubernetes objects.</p>
-        <h4>Type</h4>
-            <p>This is the accepted struct of CR body. Developer can add attributes as their need and use those attributes while managing due kubernetes object.</p>
+            <p>Controller holds the business logic of your custom resources lifecycle management.</p>
 
       <h4>How many ways are there to create operator?</h4>
             <p>There's many ways of creating operator. Some of the standard ways are listed below,</p>
@@ -197,7 +203,7 @@ $ cd app-operator
 └── version
     └── version.go
             </pre>
-            <p>Operator-sdk new command created a Dockerfile and necessary scripts, a main.go, deployment related menufests of an operator and others.</p>
+            <p>Operator-sdk new command created a Dockerfile and necessary scripts, a main.go, deployment related manifests of an operator and others.</p>
             <pre>
 # Add a new API for the custom resource AppService
 $ operator-sdk add api --api-version=app.example.com/v1alpha1 --kind=AppService
